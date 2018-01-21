@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.urlresolvers import reverse #how can I use this???
 from django.http import HttpResponse
 from rango.models import Category
 from rango.models import Page
@@ -15,7 +16,7 @@ def index(request):
 
 def about(request):
         context_dict = {'myName': "Lisa L."}
-        return render(request, 'rango/about.html', context=context_dict)
+        return render(request, 'rango/about.html', context_dict)
 
 
 def show_category(request, category_name_slug):
