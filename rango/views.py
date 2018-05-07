@@ -89,8 +89,9 @@ def add_page(request, category_name_slug):
                                 page.category = category
                                 page.views = 0
                                 page.save()
-                        # return HttpResponseRedirect(reverse('show_category'(request, category_name_slug)))
-                        return show_category(request, category_name_slug)
+                        return HttpResponseRedirect(reverse('show_category', kwargs={'category_name_slug': category_name_slug}))
+                        return HttpResponseRedirect(reverse('show_category'(request, category_name_slug)))
+                       # return show_category(request, category_name_slug)
                 else:
                         print(form.errors)
 
@@ -140,7 +141,6 @@ def add_page(request, category_name_slug):
 #                 user = authenticate(username=username, password=password)
 #
 #                 if user:
-#
 #                         if user.is_active:
 #                                 login(request, user)
 #                                 return HttpResponseRedirect(reverse('index'))
